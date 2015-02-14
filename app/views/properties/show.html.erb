@@ -1,34 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Property -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Property %></h1>
+</div>
 
-<p>
-  <strong>Property:</strong>
-  <%= @property.property_id %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:property_id) %></dt>
+      <dd><pre class="prettyprint"><%= @property.property_id %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:address) %></dt>
+      <dd><pre class="prettyprint"><%= @property.address %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:picture_take_at) %></dt>
+      <dd><pre class="prettyprint"><%= @property.picture_take_at %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:image) %></dt>
+      <dd><pre class="prettyprint"><%= @property.image %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:image_filename) %></dt>
+      <dd><pre class="prettyprint"><%= @property.image_filename %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              properties_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_property_path(@property), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              property_path(@property),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Picture take at:</strong>
-  <%= @property.picture_take_at %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @property.user %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @property.image %>
-</p>
-
-<p>
-  <strong>Image filename:</strong>
-  <%= @property.image_filename %>
-</p>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>

@@ -1,16 +1,40 @@
-<%= simple_form_for(@property) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :property_id %>
-    <%= f.input :address %>
-    <%= f.input :picture_take_at %>
-    <%= f.association :user %>
-    <%= f.input :image %>
-    <%= f.input :image_filename %>
+<%= form_for @property, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :property_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :property_id, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :address, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :picture_take_at, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.datetime_select :picture_take_at, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :image, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :image, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :image_filename, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :image_filename, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  properties_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
