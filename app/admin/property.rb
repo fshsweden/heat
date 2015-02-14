@@ -1,4 +1,5 @@
 ActiveAdmin.register Property do
+  permit_params :property_id, :address, :picture_take_at, :image, :image_filename
 
 
   # See permitted parameters documentation:
